@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Using JavaScript</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        body {
+            background-color: black;
+        }
+        .heading {
+            margin-left: 60px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 25px;
+            letter-spacing: 5px;
+            font-weight: bold;
+            color: White;
+        }   
+        #main {
+            margin-left: 480px;
+            margin-top: 15px;
+        }
+        form {
+            margin-bottom: 10px;
+        }
+        form input {
+            color: black;
+            font-weight: bold;
+            font-size: 15px;
+            height: 40px;
+            width: 276px;
+            padding-left: 10px;
+            border: 2px solid gray;
+            border-radius: 10px;
+        }
+        .button {
+            border: none;
+            border-radius: 35px;
+            color: white;
+            background-color: black;
+            font-weight: bold;
+            height: 60px;
+            width: 70px;
+        }
+        .border {
+            border: 3px solid black;
+            width: 320px;
+            margin-top: 35px;
+            background-color: red;
+            border-radius: 50px;
+        }
+        form, table {
+            margin-left: 16px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="border">
+        <div class="heading">Calculator</div>
+        <form name="form">
+            <input class="textView" name="textView">
+        </form>
+        <table class="table">
+            <tr>
+                <td><input class="button" type="button" value="C" onclick="clean()"></td>
+                <td><input class="button" type="button" value="<" onclick="back()"></td>
+                <td><input class="button" type="button" value="/" onclick="insert('/')"></td>
+                <td><input class="button" type="button" value="x" onclick="insert('*')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="7" onclick="insert(7)"></td>
+                <td><input class="button" type="button" value="8" onclick="insert(8)"></td>
+                <td><input class="button" type="button" value="9" onclick="insert(9)"></td>
+                <td><input class="button" type="button" value="-" onclick="insert('-')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="4" onclick="insert(4)"></td>
+                <td><input class="button" type="button" value="5" onclick="insert(5)"></td>
+                <td><input class="button" type="button" value="6" onclick="insert(6)"></td>
+                <td><input class="button" type="button" value="+" onclick="insert('+')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="1" onclick="insert(1)"></td>
+                <td><input class="button" type="button" value="2" onclick="insert(2)"></td>
+                <td><input class="button" type="button" value="3" onclick="insert(3)"></td>
+                <td><input class="button" type="button" value="=" onclick="equal()"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="0" onclick="insert(0)"></td>
+                <td><input class="button" type="button" value="." onclick="insert('.')"></td>
+                <td><input class="button" type="button" value="(" onclick="insert('(')"></td>
+                <td><input class="button" type="button" value=")" onclick="insert(')')"></td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    <script>
+        function insert(num) {
+            document.form.textView.value = document.form.textView.value+num;
+        }
+        function equal() {
+            let exp = document.form.textView.value;
+            if(exp) {
+                document.form.textView.value = eval(exp);
+            }
+        }
+        function clean() {
+            document.form.textView.value = "";
+        }
+        function back() {
+            let exp = document.form.textView.value;
+            if(exp) {
+            document.form.textView.value = exp.substring(0,exp.length-1);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
